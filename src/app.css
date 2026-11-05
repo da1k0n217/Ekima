@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+html,
+body {
+    margin: 0;
+    min-width: 320px;
+    background: #020617;
+}
+
+input {
+    width: 100%;
+    border: 1px solid #475569;
+    border-radius: 0.5rem;
+    background: #0f172a;
+    padding: 0.625rem 0.75rem;
+    color: #f8fafc;
+}
+
+input::placeholder {
+    color: #64748b;
+}

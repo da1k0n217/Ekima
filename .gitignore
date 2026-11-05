@@ -8,3 +8,6 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+ekima-release.jks
+ekima-release-signed.apk
+ekima-release-signed.apk.idsig
