@@ -1,10 +1,52 @@
 export type Station = {
     id: string;
     name: string;
-    address: string;
+    prefecture: string;
+    line: string;
     latitude: number;
     longitude: number;
+    postal: string;
+    distance: string;
+    prev: string;
+    next: string;
 };
+
+export type ApiStation = {
+    name: string;
+    prefecture: string;
+    line: string;
+    x: number;
+    y: number;
+    postal: string;
+    distance: string;
+    prev: string;
+    next: string;
+};
+
+export type StationsApiResponse = {
+    response: {
+        station: ApiStation[];
+    };
+};
+
+export function mapApiStation(station: ApiStation): Station {
+    return {
+        id: `${station.name}-${station.x}-${station.y}`,
+        name: station.name,
+        prefecture: station.prefecture,
+        line: station.line,
+        latitude: station.y,
+        longitude: station.x,
+        postal: station.postal,
+        distance: station.distance,
+        prev: station.prev,
+        next: station.next
+    };
+}
+
+export function mapApiStations(response: StationsApiResponse): Station[] {
+    return response.response.station.map(mapApiStation);
+}
 
 export type Coordinates = {
     latitude: number;
@@ -12,23 +54,6 @@ export type Coordinates = {
     accuracy: number;
     timestamp: number;
 };
-
-export const SAMPLE_STATIONS: Station[] = [
-    {
-        id: 'nagoya',
-        name: '名古屋駅',
-        address: '愛知県名古屋市中村区名駅',
-        latitude: 35.170915,
-        longitude: 136.881537
-    },
-    {
-        id: 'sakae',
-        name: '栄駅',
-        address: '愛知県名古屋市中区栄',
-        latitude: 35.170694,
-        longitude: 136.908611
-    }
-];
 
 const EARTH_RADIUS_METERS = 6_371_000;
 
