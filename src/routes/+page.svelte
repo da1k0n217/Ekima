@@ -190,7 +190,7 @@
                 </p>
             {/if}
             <GlassButton
-                class="mt-5 w-full rounded-4xl px-4 py-3 font-semibold transition-colors {tracking
+                class="tracking-tight mt-5 w-full rounded-4xl px-4 py-3 font-bold transition-colors {tracking
                     ? 'bg-slate-700'
                     : 'bg-cyan-500 text-slate-950 '}"
                 onclick={tracking ? stopTracking : startTracking}

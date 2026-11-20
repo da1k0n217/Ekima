@@ -27,16 +27,16 @@ class MainActivity : TauriActivity() {
             decorView
         )
 
-        // ステータスバー：#f5f5f5
-        val statusBarColor = Color.rgb(16, 24, 40)
+        // Headerのbg-slate-900と同じ色
+        val statusBarColor = Color.rgb(15, 23, 42)
         window.statusBarColor = statusBarColor
-        controller.isAppearanceLightStatusBars = true
+        controller.isAppearanceLightStatusBars = false
 
         // ナビゲーションバー：透明
         window.navigationBarColor = Color.TRANSPARENT
         controller.isAppearanceLightNavigationBars = true
 
-        // ステータスバー分だけアプリを下にずらす
+        // 全画面表示を維持しつつ、コンテンツをステータスバーの下から開始する
         ViewCompat.setOnApplyWindowInsetsListener(
             decorView
         ) { view, insets ->
